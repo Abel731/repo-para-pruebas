@@ -25,7 +25,7 @@ btnMostrar.addEventListener("click", function(){
         ' Telefóno '+telefono);
 
 });
-
+    //boton para limpiar formulario con un mensaje emergente
 const btnLimpiar = document.getElementById("btnLimpiar");
 btnLimpiar.addEventListener("click", function(){
     document.getElementById("txtNombre").value = "";
@@ -33,7 +33,7 @@ btnLimpiar.addEventListener("click", function(){
     document.getElementById("txtCedula").value = "";
     document.getElementById("txtDireccion").value = "";
     document.getElementById("txtTelefono").value = "";
-    alert('se limpió el formulario');
+    alert('se limpiará el formulario');
 });
 
 function hola(nombre, apellido){
