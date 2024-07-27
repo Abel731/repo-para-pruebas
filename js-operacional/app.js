@@ -18,9 +18,22 @@ btnMostrar.addEventListener("click", function(){
     const apellidos = document.getElementById("txtApellido").value;
     const cedulas = document.getElementById("txtCedula").value;
     const direccion = document.getElementById("txtDireccion").value;
-    console.log(' nombres '+nombres+' apellidos '+apellidos+' cedulas '+cedulas+' direccion '+direccion);
-    alert(' nombres '+nombres+' apellidos '+apellidos+' cedulas '+cedulas+' direccion '+direccion);
+    const telefono = document.getElementById("txtTelefono").value;
+    console.log(' nombres '+nombres+' apellidos '+apellidos+' cedulas '+cedulas+' direccion '+direccion+
+        'txtTelefono'+telefono);
+    alert(' Nombres '+nombres+' Apellidos '+apellidos+' Cedula '+cedulas+' Dirección '+direccion+
+        ' Telefóno '+telefono);
 
+});
+
+const btnLimpiar = document.getElementById("btnLimpiar");
+btnLimpiar.addEventListener("click", function(){
+    document.getElementById("txtNombre").value = "";
+    document.getElementById("txtApellido").value = "";
+    document.getElementById("txtCedula").value = "";
+    document.getElementById("txtDireccion").value = "";
+    document.getElementById("txtTelefono").value = "";
+    alert('se limpió el formulario');
 });
 
 function hola(nombre, apellido){
