@@ -1,28 +1,19 @@
 <template>
-  <h1>Hola mundo</h1>
-  <p>{{ contador }}</p>
-  <!-- directiva de vue lladamo @click donde cuando se haga click en el boton se ejecuta
-   la ejecucion de lo que  se asigne adentro en este ejemplo la funcion incrementar -->
-  <button @click="incrementar">incrementar</button>
-  <button @click="decrementar">decrementar</button>
+  <!-- llamamos al archivo Contador.vue como un componente 
+   y vue automaticamente reconoce la etiqueta contador como un componente que es lladamo por 
+   la importacion en el script  -->
+ <Contador></Contador> <!-- vue nos da la posibilidad de hacer cambios en un componente de manera independiente como 
+ el ejemplo de Contador.vue sin afectar al resto de los componentes que pueden componer la pagina principal -->
 </template>
 
 <script setup>
-import {ref} from 'vue';
-const contador = ref(0);
-//funcion para incrementar el valor utilizando value
-const incrementar = () => {
-  contador.value++;
-}
-const decrementar = () => {
-  contador.value--;
-}
+import Contador from './components/Contador.vue';
 
 </script>
 
 <style scoped>
-/* el "contador" se pone rojo por que esta dentro de una etiqueta <p> */
-p {
-  color: red;
-}
+
 </style>
+
+<!-- de esta manera entiendo que se puede ir agregando componentes dentro del App.vue y asi 
+ ir agregando cosas al navegar/cliente y agrandando de apoquito el proyecto :) -->
