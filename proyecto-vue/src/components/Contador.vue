@@ -1,6 +1,8 @@
 <template>
   <h1>Hola mundo</h1>
+  <br>
   <p>{{ contador }}</p>
+  <br>
   <!-- directiva de vue lladamo @click donde cuando se haga click en el boton se ejecuta
    la ejecucion de lo que  se asigne adentro en este ejemplo la funcion incrementar -->
   <button @click="incrementar">incrementar</button>
