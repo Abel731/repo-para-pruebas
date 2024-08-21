@@ -1,27 +1,31 @@
 <template>
     <div>
         <h2>Formulario de Registro</h2>
-        <!-- al importar Form de vivalidate los forms se ponen con F en mayúsculas para usar el componente
-         form de vee-validate donde llamamos al objeto schema que esta en validationSchema.js-->
-
-         <!-- nueva directiva integrada con la instalacion de vee-validate y yup que es el :validation-schema
-              -->
+       
         <Form :validation-schema="schema" @submit="onSubmit">
-            <!-- @submit es una directiva  que nos permite ejecutar una funcion al enviar el formulario -->
+            
             <div class="form">
                 <label for="nombre">Nombre:</label>
-                <!-- cambiamos los inputs por el componente Field de vee-validate y nos pide que la etiqueta 
-                 se cierre con un tag o como lo conozco la barrita "/" y se le agrega creo que por necesidad el name
-                 a cada Field que son los que estan en el esquema de validacion validationSchema.js -->
-                <Field type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" />
+                
+                <Field type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre" />
                 <ErrorMessage name="nombre"></ErrorMessage>
             </div>
             <div class="form">
+                <label for="direccion">Dirección:</label>
+                
+                <Field type="text" name="direccion" id="direccion" placeholder="Ingrese su Dirección" />
+                <ErrorMessage name="direccion"></ErrorMessage>
+            </div>
+            <div class="form">
+                <label for="telefono">Teléfono:</label>
+                <Field type="text" name="telefono" id="telefono" placeholder="Ingrese su N° de Teléfono" />
+                
+                <ErrorMessage name="telefono"></ErrorMessage>
+            </div>
+            <div class="form">
                 <label for="correo">Correo:</label>
-                <Field type="email" name="correo" id="correo" placeholder="Ingrese su correo" />
-                <!-- ErrorMessage de la biblioteca vee-validate en Vue.js es un componente utilizado 
-                 para mostrar mensajes de error personalizados asociados a un campo de formulario,
-                 se asocia directamente con un campo de formulario específico mediante su nombre "name"-->
+                <Field type="email" name="correo" id="correo" placeholder="Ingrese su Correo" />
+                
                 <ErrorMessage name="correo"></ErrorMessage>
             </div>
             <div class="form">
@@ -32,12 +36,25 @@
 </template>
 
 <script setup> // de esta forma 
-import {Form, Field, ErrorMessage} from 'vee-validate'
+import {Form, Field, ErrorMessage, useForm} from 'vee-validate'
 import { schema } from '../schemas/validationSchema';
 
-const onSubmit = () => {
-    console.log('Se ha enviado el Formularios')
-}
+// Destructura resetForm de useForm
+const { resetForm } = useForm()
+
+const onSubmit = (values) => {
+    // Mostrar un mensaje con los datos del formulario
+    /*  Los template literals permiten incluir 
+    expresiones dentro de una cadena de texto, lo que facilita la creación de strings complejos */
+    /*Los template literals son una característica de ES6 (ECMAScript 2015) que se utiliza para
+     crear cadenas de texto que pueden incluir interpolaciones, es decir, valores de variables o expresiones*/
+    alert(`Nombre: ${values.nombre}\nDirección: ${values.direccion}\nTeléfono: ${values.telefono}\nCorreo: ${values.correo}`);
+
+    // Limpiar el formulario después de que el usuario cierre el mensaje
+        resetForm()
+    
+    
+};
 </script>
 
 <style scoped>

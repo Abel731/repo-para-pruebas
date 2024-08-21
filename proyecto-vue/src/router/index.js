@@ -8,7 +8,7 @@ const router = createRouter({
       component: HomeView
     },
     */
-    { //ru
+    { //rutas
       path: '/contador',
       name: 'contador',
       component: () => import('../modules/Contador/components/Contador.vue')
